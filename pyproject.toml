@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ynab_sdk_openapi"
-version = "1.0.0"
+version = "0.0.1"
 description = "YNAB API Endpoints"
 authors = ["OpenAPI Generator Community <team@openapitools.org>"]
 license = "NoLicense"
