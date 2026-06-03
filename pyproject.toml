@@ -1,29 +1,38 @@
-[tool.poetry]
+[project]
 name = "ynab_sdk_openapi"
 version = "0.0.1"
 description = "YNAB API Endpoints"
-authors = ["OpenAPI Generator Community <team@openapitools.org>"]
-license = "NoLicense"
+authors = [{ name = "OpenAPI Generator Community", email = "team@openapitools.org" }]
+requires-python = ">=3.7,<4"
 readme = "README.md"
-repository = "https://github.com/GIT_USER_ID/GIT_REPO_ID"
-keywords = ["OpenAPI", "OpenAPI-Generator", "YNAB API Endpoints"]
-include = ["ynab_sdk_openapi/py.typed"]
+license = { text = "NoLicense" }
+keywords = [
+    "OpenAPI",
+    "OpenAPI-Generator",
+    "YNAB API Endpoints",
+]
+dependencies = [
+    "urllib3>= 1.25.3",
+    "python-dateutil>=2.8.2",
+    "pydantic>=2",
+    "typing-extensions>=4.7.1",
+]
 
-[tool.poetry.dependencies]
-python = "^3.7"
+[project.urls]
+Repository = "https://github.com/GIT_USER_ID/GIT_REPO_ID"
 
-urllib3 = ">= 1.25.3"
-python-dateutil = ">=2.8.2"
-pydantic = ">=2"
-typing-extensions = ">=4.7.1"
+[dependency-groups]
+dev = [
+    "pytest>=7.2.1",
+    "tox>=3.9.0",
+    "flake8>=4.0.0",
+    "types-python-dateutil>=2.8.19.14",
+    "mypy==1.4.1",
+]
 
-[tool.poetry.dev-dependencies]
-pytest = ">=7.2.1"
-tox = ">=3.9.0"
-flake8 = ">=4.0.0"
-types-python-dateutil = ">=2.8.19.14"
-mypy = "1.4.1"
-
+[tool.uv]
+# Supply-chain hardening: refuse versions published < 5 days ago.
+exclude-newer = "5 days"
 
 [build-system]
 requires = ["setuptools"]
